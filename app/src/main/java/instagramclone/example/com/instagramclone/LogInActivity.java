@@ -47,18 +47,14 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         btnSignUpLActivity.setOnClickListener(this);
 
         if (ParseUser.getCurrentUser() != null) {
-            // ParseUser.logOut();
             transitionToSocialMediaActivity();
         }
-
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnLogINLActivity:
-
-
                 if (edtLogInEmail.getText().toString().equals("") ||
                         edtLogInPassword.getText().toString().equals("")) {
                     FancyToast.makeText(LogInActivity.this, "Email, Password is required!", FancyToast.LENGTH_LONG, FancyToast.ERROR, false).show();
@@ -100,10 +96,9 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void transitionToSocialMediaActivity() {
-
         Intent intent = new Intent(LogInActivity.this, SocialMediaActivity.class);
         startActivity(intent);
-
+        finish();
     }
 
 }
